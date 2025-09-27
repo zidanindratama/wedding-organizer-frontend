@@ -1,4 +1,5 @@
 import CatalogUpdateForm from "@/components/dashboard/katalog/catalog-update-form";
+import SiteFooter from "@/components/main/site-footer";
 import SiteNavbar from "@/components/main/site-navbar";
 
 export default async function DashboardUpdateCatalogue({
@@ -14,6 +15,7 @@ export default async function DashboardUpdateCatalogue({
         <SiteNavbar />
       </div>
       <CatalogUpdateForm id={id} />
+      <SiteFooter />
     </>
   );
 }

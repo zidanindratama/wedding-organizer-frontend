@@ -91,28 +91,28 @@ export default function CatalogCreateForm({ onCreated, className }: Props) {
   };
 
   return (
-    <Card className={className}>
-      <CardHeader>
-        <CardTitle className="text-[#3E4638]">Tambah Paket Baru</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Nama Paket</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Silver Glam" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+    <div className={`my-40 w-full max-w-3xl mx-auto px-4 ${className ?? ""}`}>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-[#3E4638]">Tambah Paket Baru</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Nama Paket</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Silver Glam" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <FormField
                 control={form.control}
                 name="price"
@@ -144,6 +144,42 @@ export default function CatalogCreateForm({ onCreated, className }: Props) {
 
               <FormField
                 control={form.control}
+                name="imageUrl"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>URL Gambar</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="https://example.com/silver.jpg"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormDescription>Opsional.</FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Deskripsi</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Paket simple dan elegan"
+                        className="min-h-[100px]"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
                 name="isActive"
                 render={({ field }) => (
                   <FormItem className="flex items-center justify-between rounded-lg border border-[#E6E6E6] p-3">
@@ -162,72 +198,36 @@ export default function CatalogCreateForm({ onCreated, className }: Props) {
                   </FormItem>
                 )}
               />
-            </div>
 
-            <FormField
-              control={form.control}
-              name="imageUrl"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>URL Gambar</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="https://example.com/silver.jpg"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription>Opsional.</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Deskripsi</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Paket simple dan elegan"
-                      className="min-h-[100px]"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <div className="mt-2 flex items-center justify-end gap-2">
-              <Button
-                type="reset"
-                variant="outline"
-                className="rounded-full"
-                disabled={loading}
-                onClick={() => form.reset()}
-              >
-                Reset
-              </Button>
-              <Button
-                type="submit"
-                className="rounded-full bg-[#4E5A40] text-white hover:bg-[#3E4638]"
-                disabled={loading}
-              >
-                {loading ? (
-                  <span className="inline-flex items-center gap-2">
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    Menyimpan…
-                  </span>
-                ) : (
-                  "Simpan"
-                )}
-              </Button>
-            </div>
-          </form>
-        </Form>
-      </CardContent>
-    </Card>
+              <div className="mt-2 flex items-center justify-end gap-2">
+                <Button
+                  type="reset"
+                  variant="outline"
+                  className="rounded-full"
+                  disabled={loading}
+                  onClick={() => form.reset()}
+                >
+                  Reset
+                </Button>
+                <Button
+                  type="submit"
+                  className="rounded-full bg-[#4E5A40] text-white hover:bg-[#3E4638]"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <span className="inline-flex items-center gap-2">
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Menyimpan…
+                    </span>
+                  ) : (
+                    "Simpan"
+                  )}
+                </Button>
+              </div>
+            </form>
+          </Form>
+        </CardContent>
+      </Card>
+    </div>
   );
 }

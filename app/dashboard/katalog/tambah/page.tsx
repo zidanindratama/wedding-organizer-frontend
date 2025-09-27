@@ -1,4 +1,5 @@
 import CatalogCreateForm from "@/components/dashboard/katalog/catalog-create-form";
+import SiteFooter from "@/components/main/site-footer";
 import SiteNavbar from "@/components/main/site-navbar";
 import React from "react";
 
@@ -9,6 +10,7 @@ const DashboardCreateCatalogue = () => {
         <SiteNavbar />
       </div>
       <CatalogCreateForm className="border-[#E6E6E6]" />
+      <SiteFooter />
     </>
   );
 };

@@ -120,7 +120,7 @@ export default function CatalogUpdateForm({ id, className }: Props) {
   };
 
   return (
-    <div className={`mt-40 w-full max-w-3xl mx-auto px-4 ${className ?? ""}`}>
+    <div className={`my-40 w-full max-w-3xl mx-auto px-4 ${className ?? ""}`}>
       <Card>
         <CardHeader>
           <CardTitle className="text-[#3E4638]">Ubah Paket</CardTitle>
