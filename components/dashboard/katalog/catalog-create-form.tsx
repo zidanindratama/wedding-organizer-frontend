@@ -23,6 +23,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const CreateSchema = z.object({
   name: z.string().min(2, "Nama minimal 2 karakter"),
@@ -47,6 +48,7 @@ type Props = {
 
 export default function CatalogCreateForm({ onCreated, className }: Props) {
   const [loading, setLoading] = React.useState(false);
+  const router = useRouter();
 
   const form = useForm<CreateInput>({
     resolver: zodResolver(CreateSchema),
@@ -80,6 +82,7 @@ export default function CatalogCreateForm({ onCreated, className }: Props) {
         imageUrl: "",
       });
       onCreated?.();
+      router.push("/dashboard");
     } catch (e: unknown) {
       const err = e as AxiosError<ApiError>;
       const msg =
