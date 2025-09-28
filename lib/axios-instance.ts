@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-export const DEV_URL = "http://localhost:3001/api/v1";
+export const DEV_URL = "https://wedding-organizer-backend.vercel.app/api/v1";
 export const PROD_URL = "";
 
 export const axiosInstance = axios.create({

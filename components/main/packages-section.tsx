@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-export const DEV_URL = "http://localhost:3001/api/v1";
+export const DEV_URL = "https://wedding-organizer-backend.vercel.app/api/v1";
 export const PROD_URL = "https://backend-gunakarir.vercel.app/api/v1";
 
 const axiosInstance = axios.create({
